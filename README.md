@@ -47,7 +47,6 @@ kubectl logs -f redis-web-p6xrb
 
 kubectl get rs
 
-
 kubectl apply -f redis-web-service.yaml
 
 kubectl get svc
