@@ -170,9 +170,13 @@ oc export template openjdk18-web-basic-s2i -n openshift
 S2I can deploy jar only, not war. The follow not work
 
 Deploy Web microservice
+
 oc new-app --template=openjdk18-web-basic-s2i -p APPLICATION_NAME=spring-boot-session-example-redis \
+
 -p SOURCE_REPOSITORY_URL=https://github.com/cheungtom/Spring-Boot-Session-Example-Redis.git \
+
 -p SOURCE_REPOSITORY_REF=master \
+
 -p CONTEXT_DIR=
 
 oc delete all --all
