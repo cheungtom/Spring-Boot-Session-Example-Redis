@@ -2,6 +2,7 @@ Remarks:
 The Java code bases from this Java Blog https://www.javainuse.com/spring/springboot_session_redis, and then I add some customization to make it run at container environment working with Amazon ElastiCache Redis  
 
 1.) Build:
+
 mvn clean install
 
 2.) Eclipse project:
