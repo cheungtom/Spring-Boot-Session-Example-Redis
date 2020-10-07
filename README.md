@@ -1,5 +1,5 @@
 Remarks: 
-The Java code bases from this Java Blog https://www.javainuse.com/spring/springboot_session_redis, and then I add some customization to make it run at container environment working with Amazon ElastiCache Redis  
+The Java code bases from this Java Blog https://www.javainuse.com/spring/springboot_session_redis, and then I add some customization to make it run at container environment working with Amazon ElastiCache Redis. Thanks for the contribution of the above blogger.  
 
 1.) Build:
 
