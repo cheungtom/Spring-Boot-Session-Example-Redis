@@ -6,44 +6,61 @@ The Java code bases from this Java Blog https://www.javainuse.com/spring/springb
 mvn clean install
 
 2.) Eclipse project:
+
 mvn eclipse:eclipse
 
 3.) Local test
+
 mvn spring-boot:run
 
 4.) Test at PostMan
+
 http://localhost:8080/
 
 5.) Docker build:
+
 docker build -t cheungtom/redis-web .
 
 6.) Run docker container
+
 docker run -d --name redis-web -p 8080:8080 cheungtom/redis-web
+
 docker ps -a
 
 7.) Logs
+
 docker logs -f redis-web
 
 8.) Docker Image push
+
 docker login
+
 docker push cheungtom/redis-web
 
 9.) Kubernetes deploy
+
 kubectl apply -f redis-web-replicaset.yaml
+
 kubectl get pods
+
 kubectl logs -f redis-web-p6xrb
+
 kubectl get rs
 
+
 kubectl apply -f redis-web-service.yaml
+
 kubectl get svc
 
 http://localhost:80
 
 11.a) Install OpenShift on AWS by CloudFormtaion
 Follow this link:
+
 https://aws.amazon.com/quickstart/architecture/openshift/
 
 Web OCP Admin console link:
+
 https://red-hat-o-openshif-19mmubql4jye5-283815188.ap-southeast-2.elb.amazonaws.com/console/catalog
 
 Connect to ansible-configserver
