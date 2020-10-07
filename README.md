@@ -64,18 +64,27 @@ Web OCP Admin console link:
 https://red-hat-o-openshif-19mmubql4jye5-283815188.ap-southeast-2.elb.amazonaws.com/console/catalog
 
 Connect to ansible-configserver
+
 ssh -A -i "sydney_key.pem" ec2-user@ec2-3-25-75-82.ap-southeast-2.compute.amazonaws.com
 
 Admin login:
+
 sudo -s
+
 oc whoami
+
 You should be cluster admin system:admin
+
 exit
 
 Normal user login:
+
 oc login
+
 Server: https://Red-Hat-O-OpenShif-19MMUBQL4JYE5-283815188.ap-southeast-2.elb.amazonaws.com:443 (openshift)
+
 User: admin
+
 Pwd: When you set admin password for CloudFormation template
  
 oc logout
@@ -83,52 +92,71 @@ oc logout
 The following section assume you use normal user login
 
 11.b) Deploy to OpenShift - Manually build
+
 oc new-project redis-ui
+
 oc project redis-ui
 
 Deploy Web API Microservice:
+
 oc apply -f redis-web-replicaset.yaml
+
 oc get pods
 
 oc get rs
 
 oc apply -f redis-web-service.yaml
+
 oc get svc
 
 oc expose service/redis-web
+
 oc get routes
 
 oc create -f nginx-pod.yml
+
 oc exec -it nginx bash
+
 apt update
+
 apt install iputils-ping
+
 apt install curl
+
 apt install jq
 
 Get by Service ELB
+
 curl http://add58f6d0a66711ea97f802415f432a5-1812126023.ap-southeast-2.elb.amazonaws.com:80/
 
 Get by K8s service name
+
 curl http://redis-web:80/
 
 Get by OpenShift Inbound Traffic Router
+
 curl http://redis-web-redis-ui.router.default.svc.cluster.local:80/
 
 oc delete all --all
 
 12.) Deploy by S2I image builder (Only apply for Maven jar project, war not support)
+
 oc new-project redis-s2i
+
 oc project redis-s2i
 
 S2I can deploy jar only, not war. The follow not work
 
 Deploy Web microservice
+
 oc new-app java~https://github.com/cheungtom/Spring-Boot-Session-Example-Redis.git
 
 oc delete all --all
 
 13.) Deploy by S2I image builder template (Only apply for Maven jar project, war not support)
+
 oc new-project redis-ui
+
 oc project redis-ui
 
 We use openjdk18-web-basic-s2i template
